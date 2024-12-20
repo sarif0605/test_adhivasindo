@@ -32,6 +32,7 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::get('edit/{id}', 'edit')->name('content.edit');
         Route::put('update/{id}', 'update')->name('content.update');
         Route::get('show/{id}', 'show')->name('content.show');
+        Route::delete('destroy/{id}', 'destroy')->name('content.destroy');
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

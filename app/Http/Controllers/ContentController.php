@@ -136,7 +136,7 @@ class ContentController extends Controller
         $content->delete();
         return response()->json([
             'success' => true,
-            'message' => 'Prospect berhasil dihapus.',
+            'message' => 'Content berhasil dihapus.',
         ], 200);
     }
 }
