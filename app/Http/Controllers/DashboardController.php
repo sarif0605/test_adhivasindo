@@ -11,11 +11,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $contentThisMonth = Content::whereMonth('created_at', Carbon::now()->month)
+        $user = auth()->user();
+        $contentThisMonth = Content::where('user_id', $user->id)->whereMonth('created_at', Carbon::now()->month)
                                     ->whereYear('created_at', Carbon::now()->year)
                                     ->count();
 
         $monthlyContentCount = Content::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+                                    ->where('user_id', $user->id)
                                     ->whereYear('created_at', Carbon::now()->year)
                                     ->groupBy('month')
                                     ->orderBy('month')

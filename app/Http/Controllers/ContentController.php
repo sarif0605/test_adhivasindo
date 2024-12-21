@@ -56,7 +56,7 @@ class ContentController extends Controller
 
         $content->save();
 
-        return redirect()->route('content.index')
+        return redirect()->route('content')
             ->with('success', 'Content created successfully.');
     }
 
